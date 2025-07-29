@@ -51,6 +51,7 @@
         button {
             width: 100%;
             padding: 10px;
+            margin-bottom: 10px;
             background-color: #4a90e2;
             color: white;
             border: none;
@@ -99,6 +100,7 @@
         <input type="number" id="length" placeholder="দৈর্ঘ্য (ফুট)">
         <input type="number" id="width" placeholder="প্রস্থ (ফুট)">
         <button onclick="calculateArea()">হিসাব করুন</button>
+        <button style="background-color:#e74c3c" onclick="resetForm()">রিসেট করুন</button>
         <div id="result"></div>
     </div>
 </main><footer>
@@ -115,6 +117,12 @@
 
         let area = (length * width) / 435.6;
         document.getElementById('result').innerHTML = `✅ মোট জমি: <strong>${area.toFixed(3)}</strong> শতাংশ`;
+    }
+
+    function resetForm() {
+        document.getElementById('length').value = '';
+        document.getElementById('width').value = '';
+        document.getElementById('result').innerHTML = '';
     }
 </script></body>
 </html>
