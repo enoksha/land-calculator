@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <title>জমি শতাংশ ক্যালকুলেটর</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: #f7f7f7;
+        }
+        .container {
+            max-width: 500px;
+            margin: auto;
+            padding: 25px;
+            background: white;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
+            border-radius: 8px;
+        }
+        input[type="number"] {
+            width: 100%;
+            padding: 10px;
+            margin-bottom: 15px;
+            font-size: 16px;
+            box-sizing: border-box;
+        }
+        button {
+            padding: 10px 20px;
+            background: #3498db;
+            color: white;
+            font-size: 16px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button:hover {
+            background: #2980b9;
+        }
+        #result {
+            margin-top: 20px;
+            padding: 10px;
+            background: #ecf9ff;
+            border-radius: 5px;
+            font-size: 18px;
+            color: #2c3e50;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>জমি শতাংশ ক্যালকুলেটর</h2>
+
+    <label>দৈর্ঘ্য (ফুট):</label>
+    <input type="number" id="length" placeholder="দৈর্ঘ্য লিখুন (যেমন ১০)">
+
+    <label>প্রস্থ (ফুট):</label>
+    <input type="number" id="width" placeholder="প্রস্থ লিখুন (যেমন ২৫)">
+
+    <button onclick="calculate()">হিসাব করুন</button>
+
+    <div id="result"></div>
+</div>
+
+<script>
+    function calculate() {
+        const length = parseFloat(document.getElementById('length').value);
+        const width = parseFloat(document.getElementById('width').value);
+
+        if (isNaN(length) || isNaN(width) || length <= 0 || width <= 0) {
+            document.getElementById('result').innerHTML = "সঠিক দৈর্ঘ্য এবং প্রস্থ লিখুন!";
+            return;
+        }
+
+        const totalSqft = length * width;
+        const shatangsho = totalSqft / 435.6;
+
+        document.getElementById('result').innerHTML = 
+        `মোট জমি: <strong>${shatangsho.toFixed(3)}</strong> শতাংশ`;
+    }
+</script>
+
+</body>
+</html>
